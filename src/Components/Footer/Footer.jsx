@@ -28,13 +28,14 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold mb-4">Account</h2>
           <ul>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">My Account</Link></li>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">Login / Register</Link></li>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">Cart</Link></li>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">Wishlist</Link></li>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">Shop</Link></li>
+            <li className='mt-2'><Link to="account/register" className="hover:text-gray-400">My Account</Link></li>
+            <li className='mt-2'><Link to="account/login" className="hover:text-gray-400">Login / Register</Link></li>
+            <li className='mt-2'><Link to="account/cart" className="hover:text-gray-400">Cart</Link></li>
+            <li className='mt-2'><Link to="account/wishlist" className="hover:text-gray-400">Wishlist</Link></li>
+            <li className='mt-2'><Link to="/" className="hover:text-gray-400">Shop</Link></li>
           </ul>
         </div>
+
         {/* Quick Links Section */}
         <div>
           <h2 className="text-lg font-bold mb-4">Quick Links</h2>
@@ -42,7 +43,7 @@ const Footer = () => {
             <li className='mt-2'><Link to="#" className="hover:text-gray-400">Privacy Policy</Link></li>
             <li className='mt-2'><Link to="#" className="hover:text-gray-400">Terms of Use</Link></li>
             <li className='mt-2'><Link to="#" className="hover:text-gray-400">FAQ</Link></li>
-            <li className='mt-2'><Link to="#" className="hover:text-gray-400">Contact</Link></li>
+            <li className='mt-2'><Link to="/contact" className="hover:text-gray-400">Contact</Link></li>
           </ul>
         </div>
         {/* Download App Section */}
