@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +14,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
     setActiveLink(link);
   };
+
+  const cartItems = useSelector((state) => state.cart.items);
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const wishlistCount = useSelector((state) => state.wishlist.items.length);
 
   return (
     <nav className="bg-white w-full z-20 border-b border-gray-200">
@@ -33,12 +38,18 @@ const Navbar = () => {
                 <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </div>
-            <Link to="#" className="relative cursor-pointer">
-              <p className="text-sm text-white bg-red-600 rounded-full absolute -top-3 -right-3 w-6 h-6 flex items-center justify-center max-3xl:w-5 max-3xl:h-5 max-3xl:-top-2 max-3xl:-right-2 max-2xl:text-[10px] max-2xl:h-4 max-2xl:w-4 max-2xl:-right-[6px]">2</p>
+            <Link to="account/wishlist" className="relative cursor-pointer">
+              {wishlistCount > 0 && (
+              <p className="text-sm text-white bg-red-600 rounded-full absolute -top-3 -right-3 w-6 h-6 flex items-center justify-center max-3xl:w-5 max-3xl:h-5 max-3xl:-top-2 max-3xl:-right-2 max-2xl:text-[10px] max-2xl:h-4 max-2xl:w-4 max-2xl:-right-[6px]">
+                {wishlistCount}
+              </p>
+              )}
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 256 256" className="w-8 h-8 max-3xl:w-7 max-3xl:h-7 max-2xl:w-6 max-2xl:h-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path></svg>
             </Link>
-            <Link to="#" className="relative cursor-pointer">
-              <p className="text-sm text-white bg-red-600 rounded-full absolute -top-3 -right-3 w-6 h-6 flex items-center justify-center max-3xl:w-5 max-3xl:h-5 max-3xl:-top-2 max-3xl:-right-2 max-2xl:text-[10px] max-2xl:h-4 max-2xl:w-4 max-2xl:-right-[6px]">4</p>
+            <Link to="account/cart" className="relative cursor-pointer">
+              {totalItems > 0 && (
+                <p className="text-sm text-white bg-red-600 rounded-full absolute -top-3 -right-3 w-6 h-6 flex items-center justify-center max-3xl:w-5 max-3xl:h-5 max-3xl:-top-2 max-3xl:-right-2 max-2xl:text-[10px] max-2xl:h-4 max-2xl:w-4 max-2xl:-right-[6px]">{totalItems}</p>
+                )}
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="w-7 h-7 max-3xl:w-6 max-3xl:h-6 max-2xl:w-5 max-2xl:h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" strokeWidth="2" d="M5,5 L22,5 L20,14 L7,14 L4,2 L0,2 M7,14 L8,18 L21,18 M19,23 C18.4475,23 18,22.5525 18,22 C18,21.4475 18.4475,21 19,21 C19.5525,21 20,21.4475 20,22 C20,22.5525 19.5525,23 19,23 Z M9,23 C8.4475,23 8,22.5525 8,22 C8,21.4475 8.4475,21 9,21 C9.5525,21 10,21.4475 10,22 C10,22.5525 9.5525,23 9,23 Z"></path>
               </svg>
             </Link>
