@@ -12,7 +12,7 @@ const LimitedProduct = () => {
           Enhance Your Music Experience
         </h1>
         <CountdownTimer2 targetDate={targetDate} />
-        <button className="w-full lg:w-28 bg-[#00FF66] text-white py-3  font-bold rounded-sm">
+        <button className="w-72 mx-auto  md:mx-0 lg:w-28 bg-[#00FF66] text-white py-3 font-bold rounded-sm">
           Buy Now
         </button>
       </div>

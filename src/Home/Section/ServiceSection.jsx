@@ -21,7 +21,7 @@ const services = [
 const ServiceSection = () => {
   return (
     <div className="py-12">
-      <div className="mx-36">
+      <div className="md:mx-36">
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-white p-6">
